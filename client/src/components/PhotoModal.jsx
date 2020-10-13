@@ -133,6 +133,11 @@ const PhotoModal = ({ toggleModal, photos }) => {
     };
   }, []);
 
+  const dateChange = (date) => {
+    const newDate = new Date(date);
+    return newDate.toString().split(' ').slice(1, 4).join(' ');
+  };
+
   return (
     <Modal
       className="photo-modal"
@@ -170,7 +175,7 @@ const PhotoModal = ({ toggleModal, photos }) => {
             <div>
               <FooterText>{`${photos[3].description}`}</FooterText>
               <FooterText>
-                {`Dined On ${photos[3].date}`}
+                {`Dined On ${dateChange(photos[3].date)}`}
               </FooterText>
             </div>
           </DescriptionFooter>
