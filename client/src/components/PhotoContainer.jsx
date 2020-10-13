@@ -110,7 +110,8 @@ const MorePhotosText = styled.div`
   }
 `;
 
-const PhotoContainer = ({ photos, handleClick }) => {
+const PhotoContainer = ({ photos, handleClick, morePhotos }) => {
+  console.log(morePhotos);
   if (photos.length >= 9) {
     return (
       <PhotoGrid>
@@ -141,7 +142,7 @@ const PhotoContainer = ({ photos, handleClick }) => {
           </PhotoEight>
           <PhotoNine>
             <LastImage onClick={handleClick} src={`${photos[8].url_path}`}></LastImage>
-            <MorePhotosText onClick={handleClick}>+31 more</MorePhotosText>
+            <MorePhotosText onClick={handleClick}>+{`${morePhotos}`} More</MorePhotosText>
           </PhotoNine>
         </InnerGrid>
       </PhotoGrid>

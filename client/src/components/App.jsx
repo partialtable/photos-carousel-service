@@ -40,6 +40,7 @@ class App extends React.Component {
       ableToRender: false,
       showModal: false,
       photo_id: null,
+      morePhotos: 31,
     };
     this.getRestaurantsPhotos = this.getRestaurantsPhotos.bind(this);
     this.handleImageClick = this.handleImageClick.bind(this);
@@ -73,6 +74,7 @@ class App extends React.Component {
           restaurant_name: response.data[0].name,
           restaurant_id: id,
           photos: response.data[0].photos,
+          morePhotos: 31,
         });
       })
       .catch((err) => {
@@ -88,6 +90,7 @@ class App extends React.Component {
     const filteredByCategory = this.state.photos.filter((photo) => photo.category === 'Food');
     this.setState({
       photos: filteredByCategory,
+      morePhotos: filteredByCategory.length - 9,
     });
   }
 
@@ -97,6 +100,7 @@ class App extends React.Component {
     // console.log(filteredByCategory);
     this.setState({
       photos: filteredByCategory,
+      morePhotos: filteredByCategory.length - 9,
     });
   }
 
@@ -106,6 +110,7 @@ class App extends React.Component {
     // console.log(filteredByCategory);
     this.setState({
       photos: filteredByCategory,
+      morePhotos: filteredByCategory.length - 9,
     });
     // this.setState((prevState) => ({ photos: !prevState.photos }));
   }
@@ -120,7 +125,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { showModal, photos } = this.state;
+    const { showModal, photos, morePhotos } = this.state;
     if (this.state.ableToRender) {
       return (
         <div>
@@ -139,6 +144,7 @@ class App extends React.Component {
               className="container"
               photos={photos}
               handleClick={this.handleImageClick}
+              morePhotos={morePhotos}
             />
           </Wrapper>
         </div>
