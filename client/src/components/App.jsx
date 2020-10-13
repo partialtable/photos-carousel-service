@@ -94,7 +94,7 @@ class App extends React.Component {
   handleDrinkCategoryClick() {
     // console.log('clicked');
     const filteredByCategory = this.state.photos.filter((photo) => photo.category === 'Drink');
-    console.log(filteredByCategory);
+    // console.log(filteredByCategory);
     this.setState({
       photos: filteredByCategory,
     });
@@ -107,6 +107,7 @@ class App extends React.Component {
     this.setState({
       photos: filteredByCategory,
     });
+    // this.setState((prevState) => ({ photos: !prevState.photos }));
   }
 
   handleImageClick() {

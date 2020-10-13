@@ -149,10 +149,10 @@ const PhotoContainer = ({ photos, handleClick }) => {
   }
   return (
     <Wrapper>{
-      photos.map((photo) => {
+      photos.map((photo, key) => {
         return (
           <Photo>
-            <Image onClick={handleClick} src={`${photo.url_path}`}></Image>
+            <Image key={photo.photo_id} onClick={handleClick} src={`${photo.url_path}`}></Image>
           </Photo>
         );
       })
