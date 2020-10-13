@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable no-else-return */
+/* eslint-disable consistent-return */
 /* eslint-disable no-console */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable arrow-body-style */
@@ -6,6 +9,15 @@
 
 import React from 'react';
 import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, fr);
+  grid-auto-rows: 80px;
+  column-gap: 2px;
+  grid-gap: 2px;
+`;
 
 const PhotoGrid = styled.div`
   display: grid;
@@ -51,12 +63,12 @@ padding-bottom: 1px;
 `;
 const PhotoFive = styled(Photo)`
   grid-area: 2 / 1 / 3 / 2 ;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding-top: 2px;
+  padding-bottom: 2px;
 `;
 const PhotoSix = styled(Photo)`
 grid-area: 3 / 1 / 4 / 2 ;
-padding-top: 1px;
+padding-top: 2px;
 `;
 const PhotoSeven = styled(Photo)`
 grid-area: 1 / 2 / 2 / 3 ;
@@ -64,13 +76,13 @@ padding-bottom: 1px;
 `;
 const PhotoEight = styled(Photo)`
 grid-area: 2 / 2 / 3 / 3 ;
-padding-top: 1px;
-padding-bottom: 1px;
+padding-top: 2px;
+padding-bottom: 2px;
 `;
 const PhotoNine = styled(Photo)`
   grid-area: 3 / 2 / 4 / 3 ;
   background-color: black;
-  padding-top: 1px;
+  margin-top: 18px;
 `;
 
 const Image = styled.img`
@@ -80,6 +92,7 @@ const Image = styled.img`
   cursor: pointer;
 `;
 const LastImage = styled(Image)`
+  backgroud-color: black;
   opacity: .8;
 
   &:hover{
@@ -98,39 +111,53 @@ const MorePhotosText = styled.div`
 `;
 
 const PhotoContainer = ({ photos, handleClick }) => {
+  if (photos.length >= 9) {
+    return (
+      <PhotoGrid>
+        <PhotoOne>
+          <Image onClick={handleClick} src={`${photos[0].url_path}`}></Image>
+        </PhotoOne>
+        <PhotoTwo>
+          <Image onClick={handleClick} src={`${photos[1].url_path}`}></Image>
+        </PhotoTwo>
+        <PhotoThree>
+          <Image onClick={handleClick} src={`${photos[2].url_path}`}></Image>
+        </PhotoThree>
+        <InnerGrid>
+          <PhotoFour>
+            <Image onClick={handleClick} src={`${photos[3].url_path}`}></Image>
+          </PhotoFour>
+          <PhotoFive>
+            <Image onClick={handleClick} src={`${photos[4].url_path}`}></Image>
+          </PhotoFive>
+          <PhotoSix>
+            <Image onClick={handleClick} src={`${photos[5].url_path}`}></Image>
+          </PhotoSix>
+          <PhotoSeven>
+            <Image onClick={handleClick} src={`${photos[6].url_path}`}></Image>
+          </PhotoSeven>
+          <PhotoEight>
+            <Image onClick={handleClick} src={`${photos[7].url_path}`}></Image>
+          </PhotoEight>
+          <PhotoNine>
+            <LastImage onClick={handleClick} src={`${photos[8].url_path}`}></LastImage>
+            <MorePhotosText onClick={handleClick}>+31 more</MorePhotosText>
+          </PhotoNine>
+        </InnerGrid>
+      </PhotoGrid>
+    );
+  }
   return (
-    <PhotoGrid>
-      <PhotoOne>
-        <Image onClick={handleClick} src={`${photos[0].url_path}`}></Image>
-      </PhotoOne>
-      <PhotoTwo>
-        <Image onClick={handleClick} src={`${photos[1].url_path}`}></Image>
-      </PhotoTwo>
-      <PhotoThree>
-        <Image onClick={handleClick} src={`${photos[2].url_path}`}></Image>
-      </PhotoThree>
-      <InnerGrid>
-        <PhotoFour>
-          <Image onClick={handleClick} src={`${photos[3].url_path}`}></Image>
-        </PhotoFour>
-        <PhotoFive>
-          <Image onClick={handleClick} src={`${photos[4].url_path}`}></Image>
-        </PhotoFive>
-        <PhotoSix>
-          <Image onClick={handleClick} src={`${photos[5].url_path}`}></Image>
-        </PhotoSix>
-        <PhotoSeven>
-          <Image onClick={handleClick} src={`${photos[6].url_path}`}></Image>
-        </PhotoSeven>
-        <PhotoEight>
-          <Image onClick={handleClick} src={`${photos[7].url_path}`}></Image>
-        </PhotoEight>
-        <PhotoNine>
-          <LastImage onClick={handleClick} src={`${photos[8].url_path}`}></LastImage>
-          <MorePhotosText onClick={handleClick}>+31 more</MorePhotosText>
-        </PhotoNine>
-      </InnerGrid>
-    </PhotoGrid>
+    <Wrapper>{
+      photos.map((photo) => {
+        return (
+          <Photo>
+            <Image onClick={handleClick} src={`${photo.url_path}`}></Image>
+          </Photo>
+        );
+      })
+    }
+    </Wrapper>
   );
 };
 

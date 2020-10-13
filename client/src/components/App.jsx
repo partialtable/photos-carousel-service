@@ -43,6 +43,10 @@ class App extends React.Component {
     };
     this.getRestaurantsPhotos = this.getRestaurantsPhotos.bind(this);
     this.handleImageClick = this.handleImageClick.bind(this);
+    this.handleAllClick = this.handleAllClick.bind(this);
+    this.handleFoodCategoryClick = this.handleFoodCategoryClick.bind(this);
+    this.handleDrinkCategoryClick = this.handleDrinkCategoryClick.bind(this);
+    this.handleAtmosphereCategoryClick = this.handleAtmosphereCategoryClick.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
   }
 
@@ -76,10 +80,37 @@ class App extends React.Component {
       });
   }
 
+  handleAllClick() {
+    this.getRestaurantsPhotos();
+  }
+
+  handleFoodCategoryClick() {
+    const filteredByCategory = this.state.photos.filter((photo) => photo.category === 'Food');
+    this.setState({
+      photos: filteredByCategory,
+    });
+  }
+
+  handleDrinkCategoryClick() {
+    // console.log('clicked');
+    const filteredByCategory = this.state.photos.filter((photo) => photo.category === 'Drink');
+    console.log(filteredByCategory);
+    this.setState({
+      photos: filteredByCategory,
+    });
+  }
+
+  handleAtmosphereCategoryClick() {
+    // console.log('clicked');
+    const filteredByCategory = this.state.photos.filter((photo) => photo.category === 'Atmosphere');
+    // console.log(filteredByCategory);
+    this.setState({
+      photos: filteredByCategory,
+    });
+  }
+
   handleImageClick() {
-    // this.setState({
-    //   modalPhoto:
-    // });
+    // console.log(event.target);
     this.toggleModal();
   }
 
@@ -95,7 +126,14 @@ class App extends React.Component {
           <div>{showModal ? <PhotoModal showModal={showModal} toggleModal={this.toggleModal} photos={photos} /> : null}</div>
           <Wrapper>
             <Header className="header" photos={this.state.photos} />
-            <Categorylist className="categories" />
+            <Categorylist
+              className="categories"
+              photos={photos}
+              handleAllClick={this.handleAllClick}
+              handleFoodClick={this.handleFoodCategoryClick}
+              handleDrinkClick={this.handleDrinkCategoryClick}
+              handleAtmosphereClick={this.handleAtmosphereCategoryClick}
+            />
             <PhotoContainer
               className="container"
               photos={photos}

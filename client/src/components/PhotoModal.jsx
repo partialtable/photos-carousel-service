@@ -109,6 +109,12 @@ const CloseButton = styled.button`
   background-repeat: no-repeat;
   background-size: 15px;
   border: none;
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline: none;
+  }
 `;
 
 const PhotoModal = ({ toggleModal, photos }) => {
