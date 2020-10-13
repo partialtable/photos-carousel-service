@@ -1,4 +1,6 @@
 /* eslint-disable linebreak-style */
+/* eslint-disable max-len */
+/* eslint-disable linebreak-style */
 /* eslint-disable radix */
 /* eslint-disable linebreak-style */
 /* eslint-disable class-methods-use-this */
@@ -33,10 +35,11 @@ class App extends React.Component {
     super(props);
     this.state = {
       restaurant_name: '',
-      restaurant_id: Math.floor(Math.random() * 100),
+      restaurant_id: 1,
       photos: [],
       ableToRender: false,
       showModal: false,
+      photo_id: null,
     };
     this.getRestaurantsPhotos = this.getRestaurantsPhotos.bind(this);
     this.handleImageClick = this.handleImageClick.bind(this);
@@ -54,6 +57,7 @@ class App extends React.Component {
       },
     })
       .then((response) => {
+        console.log(response.data);
         let id;
         if (window.location.href.split('/')[3] === '') {
           id = 1;
@@ -73,6 +77,9 @@ class App extends React.Component {
   }
 
   handleImageClick() {
+    // this.setState({
+    //   modalPhoto:
+    // });
     this.toggleModal();
   }
 
@@ -84,21 +91,18 @@ class App extends React.Component {
     const { showModal, photos } = this.state;
     if (this.state.ableToRender) {
       return (
-        <Wrapper>
-          <Header className="header" photos={this.state.photos} />
-          <Categorylist className="categories" />
-          <PhotoContainer
-            className="container"
-            photos={photos}
-            handleClick={this.handleImageClick}
-          />
-          <PhotoModal
-            showModal={showModal}
-            toggleModal={this.toggleModal}
-            photos={photos}
-          >
-          </PhotoModal>
-        </Wrapper>
+        <div>
+          <div>{showModal ? <PhotoModal showModal={showModal} toggleModal={this.toggleModal} photos={photos} /> : null}</div>
+          <Wrapper>
+            <Header className="header" photos={this.state.photos} />
+            <Categorylist className="categories" />
+            <PhotoContainer
+              className="container"
+              photos={photos}
+              handleClick={this.handleImageClick}
+            />
+          </Wrapper>
+        </div>
       );
     }
     return (
