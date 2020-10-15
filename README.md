@@ -1,32 +1,36 @@
-POSTGRESQL SCHEMA:
+## POSTGRESQL SCHEMA:
+```json 
+    {
+      DROP DATABASE IF EXISTS restaurantPhotos;
 
-DROP DATABASE IF EXISTS restaurantPhotos;
+      CREATE DATABASE restaurantPhotos;
 
-CREATE DATABASE restaurantPhotos;
+      USE restaurantPhotos;
 
-USE restaurantPhotos;
+      CREATE TABLE restaurants (
+        restaurantId int not null auto_increment,
+        restaurantName text,
+      );
 
-CREATE TABLE restaurants (
-  restaurantId int not null auto_increment,
-  restaurantName text,
-);
+      CREATE TABLE photoAlbum (
+        restaurantId int not null auto_increment, -- id specific to each restaurant album
+        photosId int not null auto_incrememnt, -- id specific to each photo album
+      )
 
-CREATE TABLE photoAlbum (
-  restaurantId int not null auto_increment, -- id specific to each restaurant album
-  photosId int not null auto_incrememnt, -- id specific to each photo album
-)
+      CREATE TABLE photos (
+        photosId int not null auto_increment, -- id specific to each photo
+        photoUrl url not null, -- individual photos
+        photoDescription text not null UNIQUE, -- photo name/description
+        categoryId int [][], -- link to categoryId table
+      );
 
-CREATE TABLE photos (
-  photosId int not null auto_increment, -- id specific to each photo
-  photoUrl url not null, -- individual photos
-  photoDescription text not null UNIQUE, -- photo name/description
-  categoryId int [][], -- link to categoryId table
-);
+      CREATE TABLE category (
+        categoryId int auto_increment,
+        categories text not null, -- categories of photos (menu, drinks, pasta, soups)
+      );
+    }
+```
 
-CREATE TABLE category (
-  categoryId int auto_increment,
-  categories text not null, -- categories of photos (menu, drinks, pasta, soups)
-);
 
 
 
@@ -67,7 +71,7 @@ CREATE TABLE category (
 
 ```json
     {
-      "restaurantId: "Number",
+      "restaurantId": "Number",
       "photoUrl": "String location",
       "photoDescription": "String",
       "category": "String",
@@ -90,7 +94,7 @@ CREATE TABLE category (
 
 ```json
     {
-      "restaurantId: "Number",
+      "restaurantId": "Number",
       "photoUrl": "String location",
       "photoDescription": "String",
       "category": "String",
@@ -112,7 +116,7 @@ CREATE TABLE category (
 
 ```json
     {
-      "restaurantId: "Number",
+      "restaurantId": "Number",
       "photoUrl": "String location",
       "photoDescription": "String",
       "category": "String",
@@ -134,7 +138,7 @@ CREATE TABLE category (
 
 ```json
     {
-      "restaurantId: "Number",
+      "restaurantId": "Number",
       "photoUrl": "String location",
     }
 ```
