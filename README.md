@@ -38,7 +38,7 @@
 
 
 ### Get restaurant photos
-  * GET `/api/restaurants/:restaurantId/`
+  * GET `/api/restaurants/:restaurantId/photos`
 
 **Path Parameters:**
   * `restaurantId` restaurant id
@@ -58,7 +58,7 @@
 
 
 
-### Add restaurant
+### Add restaurant photos
   * POST `/api/restuarants/:restaurantId/photoUrl/:photoUrl`
   
 **Path Parameters:**
@@ -81,7 +81,7 @@
 
 
 
-### Update(PATCH) restaurant info
+### Update(PATCH) restaurant photo info
   * PATCH `/api/restaurants/:restaurantId/photoUrl/:photoUrl`
 
 **Path Parameters:**
@@ -103,7 +103,7 @@
 
 
 
-### Update(PUT) restaurant info
+### Update(PUT) restaurant photo/s info
   * PUT `/api/restaurants/:restaurantId/photoUrl/:photoUrl`
 
 **Path Parameters:**
@@ -125,7 +125,7 @@
 
 
 
-### Delete restaurant
+### Delete restaurant photo
   * DELETE `/api/restaurants/:restaurantId/photoUrl/:photoUrl`
 
 **Path Parameters:**
