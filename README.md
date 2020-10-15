@@ -25,6 +25,7 @@
         id int not null auto_increment, -- id specific to each photo
         photoUrl url not null, -- individual photos
         photoDescription text not null UNIQUE, -- photo name/description
+        user text [][], -- array with id, full name, username, and avatar in each nested array
         categoryId int [][], -- link to categoryId table
         PRIMARY KEY (id)
       );"
@@ -58,6 +59,7 @@
     {
       "id": "Number",
       "photoUrl": "String location",
+      "user": "String Array",
       "photoDescription": "String",
       "categoryId": "Number Array",
     }
@@ -80,6 +82,7 @@
     {
       "id": "Number",
       "photoUrl": "String location",
+      "user": "String Array",
       "photoDescription": "String",
       "category": "String",
     }
@@ -103,6 +106,7 @@
     {
       "id": "Number",
       "photoUrl": "String location",
+      "user": "String Array",
       "photoDescription": "String",
       "category": "String",
     }
@@ -125,6 +129,7 @@
     {
       "id": "Number",
       "photoUrl": "String location",
+      "user": "String Array",
       "photoDescription": "String",
       "category": "String",
     }
