@@ -1,9 +1,9 @@
 ## POSTGRESQL SCHEMA:
 ```json 
     {
-      `DROP DATABASE IF EXISTS restaurantPhotos;
+      "DROP DATABASE IF EXISTS restaurantPhotos;"
 
-      CREATE DATABASE restaurantPhotos;
+      "CREATE DATABASE restaurantPhotos;"
 
       USE restaurantPhotos;
 
