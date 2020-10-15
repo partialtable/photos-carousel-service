@@ -27,14 +27,14 @@
         photoDescription text not null UNIQUE, -- photo name/description
         user text [][], -- array with id, full name, username, and avatar in each nested array
         categoryId int [][], -- link to categoryId table
-        PRIMARY KEY (id)
+        PRIMARY KEY (id),
+        FOREIGN KEY(categoryId) REFERENCES category(id),
       );"
 
       "CREATE TABLE category (
         id int auto_increment,
         categories text not null, -- categories of photos (menu, drinks, pasta, soups)
-        PRIMARY KEY(no)
-        FOREIGN KEY(id) REFERENCES photos(category_id)
+        PRIMARY KEY(id)
       );"
     }
 ```
