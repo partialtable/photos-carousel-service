@@ -8,25 +8,32 @@
       "USE restaurantPhotos;"
 
       "CREATE TABLE restaurants (
-        restaurantId int not null auto_increment,
+        id int not null auto_increment,
         restaurantName text,
+        PRIMARY KEY(id)
       );"
 
       "CREATE TABLE photoAlbum (
         restaurantId int not null auto_increment, -- id specific to each restaurant album
         photosId int not null auto_incrememnt, -- id specific to each photo album
+        PRIMARY KEY(no)
+        FOREIGN KEY(restaurantId) REFERENCES restaurants(id)
+        FOREIGN KEY(photosId) REFERENCES photos(id)
       )"
 
       "CREATE TABLE photos (
-        photosId int not null auto_increment, -- id specific to each photo
+        id int not null auto_increment, -- id specific to each photo
         photoUrl url not null, -- individual photos
         photoDescription text not null UNIQUE, -- photo name/description
         categoryId int [][], -- link to categoryId table
+        PRIMARY KEY (id)
       );"
 
       "CREATE TABLE category (
-        categoryId int auto_increment,
-        categories text not null, -- categories of photos (menu, drinks, pasta, soups)`
+        id int auto_increment,
+        categories text not null, -- categories of photos (menu, drinks, pasta, soups)
+        PRIMARY KEY(no)
+        FOREIGN KEY(id) REFERENCES photos(category_id)
       );"
     }
 ```
@@ -38,10 +45,10 @@
 
 
 ### Get restaurant photos
-  * GET `/api/restaurants/:restaurantId/photos`
+  * GET `/api/restaurants/:id/photos`
 
 **Path Parameters:**
-  * `restaurantId` restaurant id
+  * `id` restaurant id
 
 **Success Status Code:** `200`
 
@@ -49,7 +56,7 @@
 
 ```json
     {
-      "photoId": "Number",
+      "id": "Number",
       "photoUrl": "String location",
       "photoDescription": "String",
       "categoryId": "Number Array",
@@ -59,10 +66,10 @@
 
 
 ### Add restaurant photos
-  * POST `/api/restuarants/:restaurantId/photoUrl/:photoUrl`
+  * POST `/api/restuarants/:id/photos/:photoUrl`
   
 **Path Parameters:**
-  * `restaurantId` restaurant id
+  * `id` restaurant id
   * `photoUrl` photo URL
 
 **Success Status Code:** `201`
@@ -71,7 +78,7 @@
 
 ```json
     {
-      "restaurantId": "Number",
+      "id": "Number",
       "photoUrl": "String location",
       "photoDescription": "String",
       "category": "String",
@@ -82,7 +89,7 @@
 
 
 ### Update(PATCH) restaurant photo info
-  * PATCH `/api/restaurants/:restaurantId/photoUrl/:photoUrl`
+  * PATCH `/api/restaurants/:id/photos/:photoUrl`
 
 **Path Parameters:**
   * `id` restaurant id
@@ -94,7 +101,7 @@
 
 ```json
     {
-      "restaurantId": "Number",
+      "id": "Number",
       "photoUrl": "String location",
       "photoDescription": "String",
       "category": "String",
@@ -104,7 +111,7 @@
 
 
 ### Update(PUT) restaurant photo/s info
-  * PUT `/api/restaurants/:restaurantId/photoUrl/:photoUrl`
+  * PUT `/api/restaurants/:id/photos/:photoUrl`
 
 **Path Parameters:**
   * `id` restaurant id
@@ -116,7 +123,7 @@
 
 ```json
     {
-      "restaurantId": "Number",
+      "id": "Number",
       "photoUrl": "String location",
       "photoDescription": "String",
       "category": "String",
@@ -126,7 +133,7 @@
 
 
 ### Delete restaurant photo
-  * DELETE `/api/restaurants/:restaurantId/photoUrl/:photoUrl`
+  * DELETE `/api/restaurants/:id/photos/:photoUrl`
 
 **Path Parameters:**
   * `id` restaurant id
@@ -138,7 +145,7 @@
 
 ```json
     {
-      "restaurantId": "Number",
+      "id": "Number",
       "photoUrl": "String location",
     }
 ```
