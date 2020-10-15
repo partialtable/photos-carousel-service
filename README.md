@@ -1,7 +1,7 @@
 ## POSTGRESQL SCHEMA:
 ```json 
     {
-      DROP DATABASE IF EXISTS restaurantPhotos;
+      `DROP DATABASE IF EXISTS restaurantPhotos;
 
       CREATE DATABASE restaurantPhotos;
 
@@ -26,7 +26,7 @@
 
       CREATE TABLE category (
         categoryId int auto_increment,
-        categories text not null, -- categories of photos (menu, drinks, pasta, soups)
+        categories text not null, -- categories of photos (menu, drinks, pasta, soups)`
       );
     }
 ```
