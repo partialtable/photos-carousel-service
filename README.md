@@ -5,29 +5,29 @@
 
       "CREATE DATABASE restaurantPhotos;"
 
-      USE restaurantPhotos;
+      "USE restaurantPhotos;"
 
-      CREATE TABLE restaurants (
+      "CREATE TABLE restaurants (
         restaurantId int not null auto_increment,
         restaurantName text,
-      );
+      );"
 
-      CREATE TABLE photoAlbum (
+      "CREATE TABLE photoAlbum (
         restaurantId int not null auto_increment, -- id specific to each restaurant album
         photosId int not null auto_incrememnt, -- id specific to each photo album
-      )
+      )"
 
-      CREATE TABLE photos (
+      "CREATE TABLE photos (
         photosId int not null auto_increment, -- id specific to each photo
         photoUrl url not null, -- individual photos
         photoDescription text not null UNIQUE, -- photo name/description
         categoryId int [][], -- link to categoryId table
-      );
+      );"
 
-      CREATE TABLE category (
+      "CREATE TABLE category (
         categoryId int auto_increment,
         categories text not null, -- categories of photos (menu, drinks, pasta, soups)`
-      );
+      );"
     }
 ```
 
