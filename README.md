@@ -1,48 +1,48 @@
 ## POSTGRESQL SCHEMA:
 ```json 
-        DROP DATABASE IF EXISTS restaurantPhotos;
+DROP DATABASE IF EXISTS restaurantPhotos;
 
-        CREATE DATABASE restaurantPhotos;
+CREATE DATABASE restaurantPhotos;
 
-        \c restaurantPhotos;
+\c restaurantPhotos;
 
-        CREATE TABLE restaurants (
-          id int not null auto_increment,
-          restaurantName varchar(50),
-          PRIMARY KEY(id),
-        );
+CREATE TABLE restaurants (
+  id int not null auto_increment,
+  restaurantName varchar(50),
+  PRIMARY KEY(id),
+);
 
-        CREATE TABLE photoAlbum (
-          restaurantId int not null, -- id specific to each restaurant album
-          photosId int not null, -- id specific to each photo album
-          FOREIGN KEY(restaurantId) REFERENCES restaurants(id),
-          FOREIGN KEY(photosId) REFERENCES photos(id),
-        )
+CREATE TABLE photoAlbum (
+  restaurantId int not null, -- id specific to each restaurant album
+  photosId int not null, -- id specific to each photo album
+  FOREIGN KEY(restaurantId) REFERENCES restaurants(id),
+  FOREIGN KEY(photosId) REFERENCES photos(id),
+)
 
-        CREATE TABLE photos (
-          id int not null auto_increment, -- id specific to each photo
-          url varchar(100) not null, -- individual photos link
-          description varchar(200) not null, -- photo name/description
-          userid int not null,
-          categoryId int not null,
-          PRIMARY KEY (id, userId),
-          FOREIGN KEY(userId) REFERENCES users(id),
-          FOREIGN KEY(categoryId) REFERENCES category(id)
-        );
+CREATE TABLE photos (
+  id int not null auto_increment, -- id specific to each photo
+  url varchar(100) not null, -- individual photos link
+  description varchar(200) not null, -- photo name/description
+  userid int not null,
+  categoryId int not null,
+  PRIMARY KEY (id, userId),
+  FOREIGN KEY(userId) REFERENCES users(id),
+  FOREIGN KEY(categoryId) REFERENCES category(id)
+);
 
-        CREATE TABLE users (
-          id int not null auto_increment, -- id specific to each user
-          firstName varchar(10) not null, -- user first name
-          lastName varchar(10) not null, -- user last name
-          username varchar(25) not null unique,
-          avatarPic varchar(50) not null -- link to user's picture
-        )
+CREATE TABLE users (
+  id int not null auto_increment, -- id specific to each user
+  firstName varchar(10) not null, -- user first name
+  lastName varchar(10) not null, -- user last name
+  username varchar(25) not null unique,
+  avatarPic varchar(50) not null -- link to user's picture
+)
 
-        CREATE TABLE category (
-          id int auto_increment,
-          categories varchar(20) not null, -- categories of photos (menu, drinks, pasta, soups)
-          PRIMARY KEY(id),
-        );
+CREATE TABLE category (
+  id int auto_increment,
+  categories varchar(20) not null, -- categories of photos (menu, drinks, pasta, soups)
+  PRIMARY KEY(id),
+);
 
 ```
 
@@ -91,7 +91,7 @@
         "lastName": "String",
         "username": "String",
         "avatarPic": "String location"
-      }"]"
+      }"]",
       "photoDescription": "String",
       "category": "String",
     }
@@ -120,7 +120,7 @@
         "lastName": "String",
         "username": "String",
         "avatarPic": "String location"
-      }"]"
+      }"]",
       "photoDescription": "String",
       "category": "String",
     }
@@ -148,7 +148,7 @@
         "lastName": "String",
         "username": "String",
         "avatarPic": "String location"
-      }"]"
+      }"]",
       "photoDescription": "String",
       "category": "String",
     }
