@@ -65,11 +65,11 @@
 
 
 ### ADD restaurant photos
-  * POST `/api/restuarants/:id/photos/:photoUrl`
+  * POST `/api/restuarants/:id/photos/:photoId`
   
 **Path Parameters:**
   * `id` restaurant id
-  * `photoUrl` photo URL
+  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -89,11 +89,11 @@
 
 
 ### UPDATE (PATCH) restaurant photo info
-  * PATCH `/api/restaurants/:id/photos/:photoUrl`
+  * PATCH `/api/restaurants/:id/photos/:photoId`
 
 **Path Parameters:**
   * `id` restaurant id
-  * `photoUrl` photo URL
+  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -112,11 +112,11 @@
 
 
 ### UPDATE (PUT) restaurant photo/s info
-  * PUT `/api/restaurants/:id/photos/:photoUrl`
+  * PUT `/api/restaurants/:id/photos/:photoId`
 
 **Path Parameters:**
   * `id` restaurant id
-  * `photoUrl` photo URL
+  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -135,11 +135,11 @@
 
 
 ### DELETE restaurant photo
-  * DELETE `/api/restaurants/:id/photos/:photoUrl`
+  * DELETE `/api/restaurants/:id/photos/:photoId`
 
 **Path Parameters:**
   * `id` restaurant id
-  * `photoUrl` photo URL
+  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -148,7 +148,7 @@
 ```json
     {
       "id": "Number",
-      "photoUrl": "String location",
+      "photoId": "Number",
     }
 ```
 
@@ -156,7 +156,7 @@
 
 
 ### GET list of restaurants
-  * GET `/api/restaurants/`
+  * GET `/api/restaurants`
 
 **Success Status Code:** `200`
 
@@ -172,7 +172,7 @@
 
 
 ### ADD new restaurant
-  * POST `/api/restuarants/`
+  * POST `/api/restuarants`
 
 **Success Status Code:** `202`
 
@@ -189,12 +189,12 @@
 
 
 ### GET name and username of photo
-  * GET `/api/restaurants/:id/photos/:photosUrl`
+  * GET `/api/restaurants/:id/photos/:photosId`
   
   
 **Path Parameters:**
   * `id` restaurant id
-  * `photoUrl` photo URL
+  * `photoId` photo id
 
 **Success Status Code:** `200`
 
@@ -208,12 +208,12 @@
 
 
 ### GET description of photo
-  * GET `/api/restaurants/:id/photos/:photosUrl`
+  * GET `/api/restaurants/:id/photos/:photosId`
   
   
 **Path Parameters:**
   * `id` restaurant id
-  * `photoUrl` photo URL
+  * `photoId` photo id
 
 **Success Status Code:** `200`
 
@@ -227,12 +227,12 @@
 
 
 ### GET link of photo
-  * GET `/api/restaurants/:id/photos/:photosUrl`
+  * GET `/api/restaurants/:id/photos/:photosId`
   
   
 **Path Parameters:**
   * `id` restaurant id
-  * `photoUrl` photo URL
+  * `photoId` photo id
 
 **Success Status Code:** `200`
 
@@ -309,11 +309,11 @@
 
 
 ### ADD restaurant photos
-  * POST `/api/restuarants/:id/photos/:url`
+  * POST `/api/restuarants/:id/photos/:photoId`
   
 **Path Parameters:**
   * `id` restaurant id
-  * `url` photo URL
+  * `photoId` photo id
 
 **Success Status Code:** `202`
 
@@ -333,11 +333,11 @@
 
 
 ### UPDATE (PATCH) restaurant photo info
-  * PATCH `/api/restaurants/:id/photos/:url`
+  * PATCH `/api/restaurants/:id/photos/:photoId`
 
 **Path Parameters:**
   * `id` restaurant id
-  * `url` photo URL
+  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -346,6 +346,7 @@
 ```json
     {
       "id": "Number",
+      "photoId": "Number",
       "description": "String",
       "url": "String location",
       "category": "Number Array",
@@ -356,11 +357,11 @@
 
 
 ### UPDATE (PUT) restaurant photo/s info
-  * PUT `/api/restaurants/:id/photos/:url`
+  * PUT `/api/restaurants/:id/photos/:photoId`
 
 **Path Parameters:**
   * `id` restaurant id
-  * `url` photo URL
+  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -379,10 +380,11 @@
 
 
 ### DELETE restaurant photo
-  * DELETE `/api/restaurants/:id`
+  * DELETE `/api/restaurants/:id/photos/:photoId`
 
 **Path Parameters:**
   * `id` restaurant id
+  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -391,6 +393,7 @@
 ```json
     {
       "id": "Number"
+      "photoId": "Number"
     }
 ```
 
@@ -414,7 +417,7 @@
 
 
 ### ADD new restaurant
-  * POST `/api/restuarants/`
+  * POST `/api/restuarants`
 
 **Success Status Code:** `201`
 
@@ -427,7 +430,7 @@
 ```
 
 ### GET list of restaurants
-  * GET `/api/restaurants/`
+  * GET `/api/restaurants`
 
 **Success Status Code:** `204`
 
@@ -443,7 +446,7 @@
 
 
 ### ADD new restaurant
-  * POST `/api/restuarants/`
+  * POST `/api/restuarants`
 
 **Success Status Code:** `201`
 
