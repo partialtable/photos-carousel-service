@@ -1,0 +1,92 @@
+{
+  "title": "Restaurant List",
+  "restaurants": [
+  	{
+      "restaurantId": 1,
+      "name": "McDonalds",
+      "photos": [
+        {
+          "id": 1,
+          "description": "A large coke",
+          "url": "http:localhost:photos",
+          "category": ["all","drinks"],
+          "users": ["Tony Tran", "tonyT", "avatarPic"]
+        },
+        {
+          "id": 2,
+          "description": "Big Mac",
+          "url": "http:localhost:bigMac",
+          "category": ["all","food"],
+          "users": ["Albert Chan", "abcTran", "avatarPic"]
+        },
+        {
+          "id": 3,
+          "description": "Chicken Nuggets",
+          "url": "http:localhost:nuggests",
+          "category": ["all","food"],
+          "users": ["Jamie Ca", "JC", "avatarPic"]
+        }
+      ]
+    },
+    {
+      "restaurantId": 2,
+      "name": "Burger King",
+      "photos": [
+        {
+          "id": 1,
+          "description": "Fries",
+          "url": "http:localhost:fries",
+          "category": ["all","food"],
+          "users": ["To Ng", "Tnguy", "avatarPic"]
+        },
+        {
+          "id": 2,
+          "description": "Onion Rings",
+          "url": "http:localhost:rings",
+          "category": ["all","food"],
+          "users": ["Mary Rau", "Marriedr", "avatarPic"]
+        },
+        {
+          "id": 3,
+          "description": "Milkshake",
+          "url": "http:localhost:shake",
+          "category": ["all","drinks"],
+          "users": ["Tony Tran", "tonyT", "avatarPic"]
+        }
+      ]
+    }
+  ]
+}
+
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "restaurants": { "type": "array", "items": [{ "type": "object", "properties": {
+            "restaurantId": { "type": "integer" },
+            "name": { "type": "string" },
+            "photos": { "type": "array", "items": [{ "type": "object", "properties": {
+                    "id": { "type": "integer" },
+                    "description": { "type": "string" },
+                    "url": { "type": "string" },
+                    "category": { "type": "array",
+                       "items": [{ "type": "string" }, { "type": "string" }]
+                    },
+                    "user": { "type": "array",
+                      "items": [{ "type": "string" }, { "type": "string" }, { "type": "string" }]
+                   },
+                   "required": [ "name", "username", "avatar"]
+                  },
+                  "required": [ "id", "description", "url", "category" ]
+                }
+              ]
+            }
+          },
+          "required": ["restaurantId", "name", "photos"]
+        }
+      ]
+    }
+  },
+  "required": ["title", "restaurants"]
+}

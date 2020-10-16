@@ -12,7 +12,8 @@
     "start-dev": "node server/server.js",
     "test": "jest",
     "seed": "node database/seeder.js",
-    "test:coverage": "jest --verbose --coverage"
+    "test:coverage": "jest --verbose --coverage",
+    "build": "webpack"
   },
   "dependencies": {
     "axios": "^0.20.0",
