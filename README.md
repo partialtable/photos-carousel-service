@@ -17,7 +17,7 @@ CREATE TABLE photos (
   id INT NOT NULL, -- id specific to each photo
   url VARCHAR(100) NOT NULL, -- individual photos link
   description VARCHAR(200) NOT NULL, -- photo name/description
-  userid INT NOT NULL,
+  userId INT NOT NULL,
   categoryId INT NOT NULL,
 
   PRIMARY KEY (id, userId, categoryId),
