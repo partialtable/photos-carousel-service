@@ -143,7 +143,7 @@ CREATE TABLE category (
     {
       "id": "Number",
       "photoUrl": "String location",
-      "user: "["{
+      "userId: "["{
         "firstName": "String",
         "lastName": "String",
         "username": "String",
