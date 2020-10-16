@@ -86,7 +86,12 @@
     {
       "id": "Number",
       "photoUrl": "String location",
-      "userId": "Number",
+      "userId": "["{
+        "firstName": "String",
+        "lastName": "String",
+        "username": "String",
+        "avatarPic": "String location"
+      }"]"
       "photoDescription": "String",
       "category": "String",
     }
@@ -110,7 +115,12 @@
     {
       "id": "Number",
       "photoUrl": "String location",
-      "userId": "Number",
+      "userId": "["{
+        "firstName": "String",
+        "lastName": "String",
+        "username": "String",
+        "avatarPic": "String location"
+      }"]"
       "photoDescription": "String",
       "category": "String",
     }
@@ -133,7 +143,12 @@
     {
       "id": "Number",
       "photoUrl": "String location",
-      "userId": "Number",
+      "user: "["{
+        "firstName": "String",
+        "lastName": "String",
+        "username": "String",
+        "avatarPic": "String location"
+      }"]"
       "photoDescription": "String",
       "category": "String",
     }
@@ -209,12 +224,12 @@
 
 ```json
     {
-      "user": "[{
+      "user": "["{
         "firstName": "String",
         "lastName": "String",
         "username": "String",
         "avatarPic": "String location"
-      }]"
+      }"]"
     }
 ```
 
@@ -314,13 +329,13 @@
       "description": "String",
       "url": "String location",
       "category": "Number",
-      "user": "[{
+      "user": "["{
         "id": "Number",
         "firstName": "String",
         "lastName": "String",
         "username": "String",
         "avatarPic": "String location"
-      }]"
+      }"]"
     }
 ```
 
@@ -343,12 +358,12 @@
       "description": "String",
       "url": "String location",
       "category": "Number",
-      "user": "[{
+      "user": "["{
         "firstName": "String",
         "lastName": "String",
         "username": "String",
         "avatarPic": "String location"
-      }]"
+      }"]"
     }
 ```
 
@@ -373,12 +388,12 @@
       "description": "String",
       "url": "String location",
       "category": "Number",
-      "user": "[{
+      "user": "["{
         "firstName": "String",
         "lastName": "String",
         "username": "String",
         "avatarPic": "String location"
-      }]"
+      }"]"
     }
 ```
 
