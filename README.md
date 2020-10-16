@@ -319,7 +319,7 @@ CREATE TABLE category (
       "id": "Number",
       "description": "String",
       "url": "String location",
-      "category": "Number",
+      "category": "String",
       "user": "["{
         "id": "Number",
         "firstName": "String",
@@ -347,7 +347,7 @@ CREATE TABLE category (
       "id": "Number",
       "description": "String",
       "url": "String location",
-      "category": "Number",
+      "category": "String",
       "user": "["{
         "firstName": "String",
         "lastName": "String",
@@ -376,7 +376,7 @@ CREATE TABLE category (
       "photoId": "Number",
       "description": "String",
       "url": "String location",
-      "category": "Number",
+      "category": "String",
       "user": "["{
         "firstName": "String",
         "lastName": "String",
@@ -403,7 +403,7 @@ CREATE TABLE category (
       "id": "Number",
       "description": "String",
       "url": "String location",
-      "category": "Number",
+      "category": "String",
       "user": "["{
         "firstName": "String",
         "lastName": "String",
@@ -506,14 +506,14 @@ Legacy code's endpoints:
 
 PostgreSQL:
 GET    : /api/restaurants/:restaurantId/photos
-POST   : /api/restuarants/:restaurantId/photo/:photoUrl
-PUT    : /api/restaurants/:restaurantId/photo/:photoUrl
-PATCH  : /api/restaurants/:restaurantId/photo/:photoUrl
-DELETE : /api/restaurants/:restaurantId/photo/:photoUrl
+POST   : /api/restuarants/:restaurantId/photos
+PUT    : /api/restaurants/:restaurantId/photos
+PATCH  : /api/restaurants/:restaurantId/photos
+DELETE : /api/restaurants/:restaurantId/photos
 
 ArangoDB
-GET    : /api/restaurants/:restaurantId
-POST   : /api/restuarants/:restaurantId/photos/:url
-PUT    : /api/restaurants/:restaurantId/photos/:url
-PATCH  : /api/restaurants/:restaurantId/photos/:url
-DELETE : /api/restaurants/:restaurantId/photos/:url
+GET    : /api/restaurants/:restaurantId/photos
+POST   : /api/restuarants/:restaurantId/photos
+PUT    : /api/restaurants/:restaurantId/photos
+PATCH  : /api/restaurants/:restaurantId/photos
+DELETE : /api/restaurants/:restaurantId/photos
