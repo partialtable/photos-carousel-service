@@ -42,7 +42,7 @@
 ## Server API for PostgreSQL
 
 
-### Get restaurant photos
+### GET restaurant photos
   * GET `/api/restaurants/:id/photos`
 
 **Path Parameters:**
@@ -64,14 +64,14 @@
 
 
 
-### Add restaurant photos
+### ADD restaurant photos
   * POST `/api/restuarants/:id/photos/:photoUrl`
   
 **Path Parameters:**
   * `id` restaurant id
   * `photoUrl` photo URL
 
-**Success Status Code:** `201`
+**Success Status Code:** `204`
 
 **Request Body**: Expects JSON with the following keys.
 
@@ -88,7 +88,7 @@
 
 
 
-### Update(PATCH) restaurant photo info
+### UPDATE (PATCH) restaurant photo info
   * PATCH `/api/restaurants/:id/photos/:photoUrl`
 
 **Path Parameters:**
@@ -111,7 +111,7 @@
 
 
 
-### Update(PUT) restaurant photo/s info
+### UPDATE (PUT) restaurant photo/s info
   * PUT `/api/restaurants/:id/photos/:photoUrl`
 
 **Path Parameters:**
@@ -134,7 +134,7 @@
 
 
 
-### Delete restaurant photo
+### DELETE restaurant photo
   * DELETE `/api/restaurants/:id/photos/:photoUrl`
 
 **Path Parameters:**
@@ -155,7 +155,7 @@
 
 
 
-### Get list of restaurants
+### GET list of restaurants
   * GET `/api/restaurants/`
 
 **Success Status Code:** `200`
@@ -171,10 +171,10 @@
 
 
 
-### Add new restaurant
+### ADD new restaurant
   * POST `/api/restuarants/`
 
-**Success Status Code:** `201`
+**Success Status Code:** `202`
 
 **Request Body**: Expects JSON with the following keys.
 
@@ -188,7 +188,7 @@
 
 
 
-### Get name and username of photo
+### GET name and username of photo
   * GET `/api/restaurants/:id/photos/:photosUrl`
   
   
@@ -207,7 +207,7 @@
 ```
 
 
-### Get description of photo
+### GET description of photo
   * GET `/api/restaurants/:id/photos/:photosUrl`
   
   
@@ -226,7 +226,7 @@
 ```
 
 
-### Get link of photo
+### GET link of photo
   * GET `/api/restaurants/:id/photos/:photosUrl`
   
   
@@ -286,7 +286,7 @@
 ## Server API for ArangoDB
 
 
-### Get restaurant photos
+### GET restaurant photos
   * GET `/api/restaurants/:id/photos`
 
 **Path Parameters:**
@@ -308,14 +308,14 @@
 
 
 
-### Add restaurant photos
+### ADD restaurant photos
   * POST `/api/restuarants/:id/photos/:url`
   
 **Path Parameters:**
   * `id` restaurant id
   * `url` photo URL
 
-**Success Status Code:** `201`
+**Success Status Code:** `202`
 
 **Request Body**: Expects JSON with the following keys.
 
@@ -332,7 +332,7 @@
 
 
 
-### Update(PATCH) restaurant photo info
+### UPDATE (PATCH) restaurant photo info
   * PATCH `/api/restaurants/:id/photos/:url`
 
 **Path Parameters:**
@@ -355,7 +355,7 @@
 
 
 
-### Update(PUT) restaurant photo/s info
+### UPDATE (PUT) restaurant photo/s info
   * PUT `/api/restaurants/:id/photos/:url`
 
 **Path Parameters:**
@@ -378,7 +378,7 @@
 
 
 
-### Delete restaurant photo
+### DELETE restaurant photo
   * DELETE `/api/restaurants/:id`
 
 **Path Parameters:**
@@ -397,10 +397,10 @@
 
 
 
-### Get list of restaurants
+### GET list of restaurants
   * GET `/api/restaurants/`
 
-**Success Status Code:** `200`
+**Success Status Code:** `202`
 
 **Returns:** JSON
 
@@ -413,7 +413,7 @@
 
 
 
-### Add new restaurant
+### ADD new restaurant
   * POST `/api/restuarants/`
 
 **Success Status Code:** `201`
@@ -426,6 +426,34 @@
     }
 ```
 
+### GET list of restaurants
+  * GET `/api/restaurants/`
+
+**Success Status Code:** `204`
+
+**Returns:** JSON
+
+```json
+    {
+      "id": "Number",
+      "name": "String"
+    }
+```
+
+
+
+### ADD new restaurant
+  * POST `/api/restuarants/`
+
+**Success Status Code:** `201`
+
+**Request Body**: Expects JSON with the following keys.
+
+```json
+    {
+      "name": "String",
+    }
+```
 
 
 
