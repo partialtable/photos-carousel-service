@@ -401,12 +401,12 @@
       "description": "String",
       "url": "String location",
       "category": "Number",
-      "user": "[{
+      "user": "["{
         "firstName": "String",
         "lastName": "String",
         "username": "String",
         "avatarPic": "String location"
-      }]"
+      }"]"
     }
 ```
 
@@ -425,7 +425,7 @@
 
 ```json
     {
-      "id": "Number"
+      "id": "Number",
       "photoId": "Number"
     }
 ```
