@@ -39,10 +39,7 @@
     }
 ```
 
-
-
-
-## Server API
+## Server API for PostgreSQL
 
 
 ### Get restaurant photos
@@ -158,6 +155,219 @@
 
 
 
+### Get list of restaurants
+  * GET `/api/restaurants/`
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+    {
+      "id": "Number",
+      "name": "String"
+    }
+```
+
+
+
+### Add new restaurant
+  * POST `/api/restuarants/`
+
+**Success Status Code:** `201`
+
+**Request Body**: Expects JSON with the following keys.
+
+```json
+    {
+      "id": "Number",
+      "name": "String"
+    }
+```
+
+
+
+### ArangoDB Schema
+
+`{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "restaurants": { "type": "array", "items": [{ "type": "object", "properties": {
+            "restaurantId": { "type": "integer" },
+            "name": { "type": "string" },
+            "photos": { "type": "array", "items": [{ "type": "object", "properties": {
+                    "id": { "type": "integer" },
+                    "description": { "type": "string" },
+                    "url": { "type": "string" },
+                    "category": { "type": "array",
+                       "items": [{ "type": "string" }, { "type": "string" }]
+                    },
+                    "user": { "type": "array",
+                      "items": [{ "type": "string" }, { "type": "string" }, { "type": "string" }]
+                   }
+                  },
+                  "required": [ "id", "description", "url", "category" ]
+                }
+              ]
+            }
+          },
+          "required": ["restaurantId", "name", "photos"]
+        }
+      ]
+    }
+  },
+  "required": ["title", "restaurants"]
+}`
+
+
+
+
+## Server API for ArangoDB
+
+
+### Get restaurant photos
+  * GET `/api/restaurants/:id/photos`
+
+**Path Parameters:**
+  * `id` restaurant id
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+    {
+      "id": "Number",
+      "description": "String",
+      "url": "String location",
+      "category": "Number Array",
+      "user": "String Array"
+    }
+```
+
+
+
+### Add restaurant photos
+  * POST `/api/restuarants/:id/photos/:url`
+  
+**Path Parameters:**
+  * `id` restaurant id
+  * `url` photo URL
+
+**Success Status Code:** `201`
+
+**Request Body**: Expects JSON with the following keys.
+
+```json
+    {
+      "id": "Number",
+      "description": "String",
+      "url": "String location",
+      "category": "Number Array",
+      "user": "String Array"
+    }
+```
+
+
+
+
+### Update(PATCH) restaurant photo info
+  * PATCH `/api/restaurants/:id/photos/:url`
+
+**Path Parameters:**
+  * `id` restaurant id
+  * `url` photo URL
+
+**Success Status Code:** `204`
+
+**Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
+
+```json
+    {
+      "id": "Number",
+      "description": "String",
+      "url": "String location",
+      "category": "Number Array",
+      "user": "String Array"
+    }
+```
+
+
+
+### Update(PUT) restaurant photo/s info
+  * PUT `/api/restaurants/:id/photos/:url`
+
+**Path Parameters:**
+  * `id` restaurant id
+  * `url` photo URL
+
+**Success Status Code:** `204`
+
+**Request Body**: Expects JSON with any of the following keys (include only keys to be updated)
+
+```json
+    {
+      "id": "Number",
+      "description": "String",
+      "url": "String location",
+      "category": "Number Array",
+      "user": "String Array"
+    }
+```
+
+
+
+### Delete restaurant photo
+  * DELETE `/api/restaurants/:id`
+
+**Path Parameters:**
+  * `id` restaurant id
+
+**Success Status Code:** `204`
+
+**Request Body**: Expects JSON with the following keys.
+
+```json
+    {
+      "id": "Number"
+    }
+```
+
+
+
+
+### Get list of restaurants
+  * GET `/api/restaurants/`
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+    {
+      "id": "Number",
+      "name": "String"
+    }
+```
+
+
+
+### Add new restaurant
+  * POST `/api/restuarants/`
+
+**Success Status Code:** `201`
+
+**Request Body**: Expects JSON with the following keys.
+
+```json
+    {
+      "name": "String",
+    }
+```
+
+
 
 
 # photos-carousel-service
@@ -171,15 +381,15 @@ Legacy code's endpoints:
   GET: /api/restaurants/photos/:id (restuanrantId)
 
 PostgreSQL:
-GET    : /api/restaurants/:restaurantId/photos/:photoId
-POST   : /api/restuarants/:restaurantId/photos/:photoId/ (:photoName || req.body = photoName)
-PUT    : /api/restaurants/:restaurantId/photos/:photoId/ (:photoName || req.body = photoName)
-PATCH  : /api/restaurants/:restaurantId/photos/:photoId/ (:photoName || req.body = photoName)
-DELETE : /api/restaurants/:restaurantId/photos/:photoId/ (:photoName || req.body = photoName)
+GET    : /api/restaurants/:restaurantId/photos
+POST   : /api/restuarants/:restaurantId/photo/:photoUrl
+PUT    : /api/restaurants/:restaurantId/photo/:photoUrl
+PATCH  : /api/restaurants/:restaurantId/photo/:photoUrl
+DELETE : /api/restaurants/:restaurantId/photo/:photoUrl
 
-Cassandra:
+ArangoDB
 GET    : /api/restaurants/:restaurantId
-POST   : /api/restuarants/:restaurantId/photos/:photoName
-PUT    : /api/restaurants/:restaurantId/photos/:photoName
-PATCH  : /api/restaurants/:restaurantId/photos/:photoName
-DELETE : /api/restaurants/:restaurantId/photos/:photoName
+POST   : /api/restuarants/:restaurantId/photos/:url
+PUT    : /api/restaurants/:restaurantId/photos/:url
+PATCH  : /api/restaurants/:restaurantId/photos/:url
+DELETE : /api/restaurants/:restaurantId/photos/:url
