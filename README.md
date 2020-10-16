@@ -21,6 +21,7 @@ CREATE TABLE photos (
   categoryId INT NOT NULL,
 
   PRIMARY KEY (id, userId, categoryId),
+  FOREIGN KEY(id) REFERENCES restaurants(id),
   FOREIGN KEY(userId) REFERENCES users(id),
   FOREIGN KEY(categoryId) REFERENCES category(id)
 );
@@ -59,9 +60,9 @@ CREATE TABLE category (
 ```json
     {
       "id": "Number",
-      "photoUrl": "String location",
+      "url": "String location",
       "userId": "Number",
-      "photoDescription": "String",
+      "description": "String",
       "categoryId": "Number",
     }
 ```
@@ -69,11 +70,10 @@ CREATE TABLE category (
 
 
 ### ADD restaurant photos
-  * POST `/api/restuarants/:id/photos/:photoId`
+  * POST `/api/restuarants/:id/photos`
   
 **Path Parameters:**
   * `id` restaurant id
-  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -82,14 +82,14 @@ CREATE TABLE category (
 ```json
     {
       "id": "Number",
-      "photoUrl": "String location",
+      "url": "String location",
       "userId": "["{
         "firstName": "String",
         "lastName": "String",
         "username": "String",
         "avatarPic": "String location"
       }"]",
-      "photoDescription": "String",
+      "description": "String",
       "category": "String",
     }
 ```
@@ -98,11 +98,10 @@ CREATE TABLE category (
 
 
 ### UPDATE (PATCH) restaurant photo info
-  * PATCH `/api/restaurants/:id/photos/:photoId`
+  * PATCH `/api/restaurants/:id/photos`
 
 **Path Parameters:**
   * `id` restaurant id
-  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -111,14 +110,14 @@ CREATE TABLE category (
 ```json
     {
       "id": "Number",
-      "photoUrl": "String location",
+      "url": "String location",
       "userId": "["{
         "firstName": "String",
         "lastName": "String",
         "username": "String",
         "avatarPic": "String location"
       }"]",
-      "photoDescription": "String",
+      "description": "String",
       "category": "String",
     }
 ```
@@ -139,14 +138,14 @@ CREATE TABLE category (
 ```json
     {
       "id": "Number",
-      "photoUrl": "String location",
+      "url": "String location",
       "userId": "["{
         "firstName": "String",
         "lastName": "String",
         "username": "String",
         "avatarPic": "String location"
       }"]",
-      "photoDescription": "String",
+      "description": "String",
       "category": "String",
     }
 ```
@@ -154,11 +153,10 @@ CREATE TABLE category (
 
 
 ### DELETE restaurant photo
-  * DELETE `/api/restaurants/:id/photos/:photoId`
+  * DELETE `/api/restaurants/:id/photos`
 
 **Path Parameters:**
   * `id` restaurant id
-  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -167,7 +165,6 @@ CREATE TABLE category (
 ```json
     {
       "id": "Number",
-      "photoId": "Number",
     }
 ```
 
@@ -208,12 +205,11 @@ CREATE TABLE category (
 
 
 ### GET name and username of photo
-  * GET `/api/restaurants/:id/photos/:photosId`
+  * GET `/api/restaurants/:id/photos`
   
   
 **Path Parameters:**
   * `id` restaurant id
-  * `photoId` photo id
 
 **Success Status Code:** `200`
 
@@ -232,12 +228,11 @@ CREATE TABLE category (
 
 
 ### GET description of photo
-  * GET `/api/restaurants/:id/photos/:photosId`
+  * GET `/api/restaurants/:id/photos`
   
   
 **Path Parameters:**
   * `id` restaurant id
-  * `photoId` photo id
 
 **Success Status Code:** `200`
 
@@ -251,12 +246,11 @@ CREATE TABLE category (
 
 
 ### GET link of photo
-  * GET `/api/restaurants/:id/photos/:photosId`
+  * GET `/api/restaurants/:id/photos`
   
   
 **Path Parameters:**
   * `id` restaurant id
-  * `photoId` photo id
 
 **Success Status Code:** `200`
 
@@ -339,11 +333,10 @@ CREATE TABLE category (
 
 
 ### ADD restaurant photos
-  * POST `/api/restuarants/:id/photos/:photoId`
+  * POST `/api/restuarants/:id/photos`
   
 **Path Parameters:**
   * `id` restaurant id
-  * `photoId` photo id
 
 **Success Status Code:** `202`
 
@@ -368,11 +361,10 @@ CREATE TABLE category (
 
 
 ### UPDATE (PATCH) restaurant photo info
-  * PATCH `/api/restaurants/:id/photos/:photoId`
+  * PATCH `/api/restaurants/:id/photos`
 
 **Path Parameters:**
   * `id` restaurant id
-  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -397,11 +389,10 @@ CREATE TABLE category (
 
 
 ### UPDATE (PUT) restaurant photo/s info
-  * PUT `/api/restaurants/:id/photos/:photoId`
+  * PUT `/api/restaurants/:id/photos`
 
 **Path Parameters:**
   * `id` restaurant id
-  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -425,11 +416,10 @@ CREATE TABLE category (
 
 
 ### DELETE restaurant photo
-  * DELETE `/api/restaurants/:id/photos/:photoId`
+  * DELETE `/api/restaurants/:id/photos`
 
 **Path Parameters:**
   * `id` restaurant id
-  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -438,7 +428,6 @@ CREATE TABLE category (
 ```json
     {
       "id": "Number",
-      "photoId": "Number"
     }
 ```
 
