@@ -83,7 +83,7 @@ CREATE TABLE category (
     {
       "id": "Number",
       "url": "String location",
-      "userId": "["{
+      "user": "["{
         "firstName": "String",
         "lastName": "String",
         "username": "String",
@@ -111,7 +111,7 @@ CREATE TABLE category (
     {
       "id": "Number",
       "url": "String location",
-      "userId": "["{
+      "user": "["{
         "firstName": "String",
         "lastName": "String",
         "username": "String",
@@ -139,7 +139,7 @@ CREATE TABLE category (
     {
       "id": "Number",
       "url": "String location",
-      "userId": "["{
+      "user": "["{
         "firstName": "String",
         "lastName": "String",
         "username": "String",
