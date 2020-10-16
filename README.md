@@ -9,6 +9,7 @@ CREATE DATABASE restaurantPhotos;
 CREATE TABLE restaurants (
   id INT NOT NULL AUTO_INCREMENT,
   restaurantName VARCHAR(50),
+  
   PRIMARY KEY(id),
 );
 
@@ -18,8 +19,8 @@ CREATE TABLE photos (
   description VARCHAR(200) NOT NULL, -- photo name/description
   userid INT NOT NULL,
   categoryId INT NOT NULL,
+
   PRIMARY KEY (id, userId, categoryId),
-  FOREIGN KEY(id) REFERENCES restaurants(id),
   FOREIGN KEY(userId) REFERENCES users(id),
   FOREIGN KEY(categoryId) REFERENCES category(id)
 );
@@ -37,6 +38,7 @@ CREATE TABLE category (
   categories VARCHAR(20) NOT NULL, -- categories of photos (menu, drinks, pasta, soups)
   PRIMARY KEY(id),
 );
+
 
 
 ```
