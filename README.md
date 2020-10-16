@@ -125,11 +125,10 @@ CREATE TABLE category (
 
 
 ### UPDATE (PUT) restaurant photo/s info
-  * PUT `/api/restaurants/:id/photos/:photoId`
+  * PUT `/api/restaurants/:id/photos`
 
 **Path Parameters:**
   * `id` restaurant id
-  * `photoId` photo id
 
 **Success Status Code:** `204`
 
@@ -165,6 +164,7 @@ CREATE TABLE category (
 ```json
     {
       "id": "Number",
+      "description": "String",
     }
 ```
 
