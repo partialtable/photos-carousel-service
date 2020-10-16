@@ -187,6 +187,65 @@
 
 
 
+
+### Get name and username of photo
+  * GET `/api/restaurants/:id/photos/:photosUrl`
+  
+  
+**Path Parameters:**
+  * `id` restaurant id
+  * `photoUrl` photo URL
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+    {
+      "user": "String Array"
+    }
+```
+
+
+### Get description of photo
+  * GET `/api/restaurants/:id/photos/:photosUrl`
+  
+  
+**Path Parameters:**
+  * `id` restaurant id
+  * `photoUrl` photo URL
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+    {
+      "description": "String"
+    }
+```
+
+
+### Get link of photo
+  * GET `/api/restaurants/:id/photos/:photosUrl`
+  
+  
+**Path Parameters:**
+  * `id` restaurant id
+  * `photoUrl` photo URL
+
+**Success Status Code:** `200`
+
+**Returns:** JSON
+
+```json
+    {
+      "url": "String"
+    }
+```
+
+
+
 ### ArangoDB Schema
 
 `{
