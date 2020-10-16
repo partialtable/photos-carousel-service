@@ -12,20 +12,14 @@ CREATE TABLE restaurants (
   PRIMARY KEY(id),
 );
 
-CREATE TABLE photoAlbum (
-  restaurantId INT NOT NULL, -- id specific to each restaurant album
-  photosId INT NOT NULL, -- id specific to each photo album
-  FOREIGN KEY(restaurantId) REFERENCES restaurants(id),
-  FOREIGN KEY(photosId) REFERENCES photos(id),
-)
-
 CREATE TABLE photos (
-  id INT NOT NULL AUTO_INCREMENT, -- id specific to each photo
+  id INT NOT NULL, -- id specific to each photo
   url VARCHAR(100) NOT NULL, -- individual photos link
   description VARCHAR(200) NOT NULL, -- photo name/description
   userid INT NOT NULL,
   categoryId INT NOT NULL,
-  PRIMARY KEY (id, userId),
+  PRIMARY KEY (id, userId, categoryId),
+  FOREIGN KEY(id) REFERENCES restaurants(id),
   FOREIGN KEY(userId) REFERENCES users(id),
   FOREIGN KEY(categoryId) REFERENCES category(id)
 );
