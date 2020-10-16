@@ -7,42 +7,43 @@ CREATE DATABASE restaurantPhotos;
 \c restaurantPhotos;
 
 CREATE TABLE restaurants (
-  id int not null auto_increment,
-  restaurantName varchar(50),
+  id INT NOT NULL AUTO_INCREMENT,
+  restaurantName VARCHAR(50),
   PRIMARY KEY(id),
 );
 
 CREATE TABLE photoAlbum (
-  restaurantId int not null, -- id specific to each restaurant album
-  photosId int not null, -- id specific to each photo album
+  restaurantId INT NOT NULL, -- id specific to each restaurant album
+  photosId INT NOT NULL, -- id specific to each photo album
   FOREIGN KEY(restaurantId) REFERENCES restaurants(id),
   FOREIGN KEY(photosId) REFERENCES photos(id),
 )
 
 CREATE TABLE photos (
-  id int not null auto_increment, -- id specific to each photo
-  url varchar(100) not null, -- individual photos link
-  description varchar(200) not null, -- photo name/description
-  userid int not null,
-  categoryId int not null,
+  id INT NOT NULL AUTO_INCREMENT, -- id specific to each photo
+  url VARCHAR(100) NOT NULL, -- individual photos link
+  description VARCHAR(200) NOT NULL, -- photo name/description
+  userid INT NOT NULL,
+  categoryId INT NOT NULL,
   PRIMARY KEY (id, userId),
   FOREIGN KEY(userId) REFERENCES users(id),
   FOREIGN KEY(categoryId) REFERENCES category(id)
 );
 
 CREATE TABLE users (
-  id int not null auto_increment, -- id specific to each user
-  firstName varchar(10) not null, -- user first name
-  lastName varchar(10) not null, -- user last name
-  username varchar(25) not null unique,
-  avatarPic varchar(50) not null -- link to user's picture
+  id INT NOT NULL AUTO_INCREMENT, -- id specific to each user
+  firstName VARCHAR(10) NOT NULL, -- user first name
+  lastName VARCHAR(10) NOT NULL, -- user last name
+  username VARCHAR(25) NOT NULL UNIQUE,
+  avatarPic VARCHAR(50) NOT NULL -- link to user's picture
 )
 
 CREATE TABLE category (
-  id int auto_increment,
-  categories varchar(20) not null, -- categories of photos (menu, drinks, pasta, soups)
+  id INT NOT NULL AUTO_INCREMENT,
+  categories VARCHAR(20) NOT NULL, -- categories of photos (menu, drinks, pasta, soups)
   PRIMARY KEY(id),
 );
+
 
 ```
 
