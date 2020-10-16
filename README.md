@@ -189,12 +189,12 @@
 
 ### ArangoDB Schema
 
-"{"
-  ""$schema": "http://json-schema.org/draft-04/schema#","
-  ""type": "object","
-  ""properties": {"
-    ""title": { "type": "string" },"
-    ""restaurants": { "type": "array", "items": [{ "type": "object", "properties": {"
+`{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "title": { "type": "string" },
+    "restaurants": { "type": "array", "items": [{ "type": "object", "properties": {
             "restaurantId": { "type": "integer" },
             "name": { "type": "string" },
             "photos": { "type": "array", "items": [{ "type": "object", "properties": {
@@ -219,7 +219,7 @@
     }
   },
   "required": ["title", "restaurants"]
-}
+}`
 
 
 
