@@ -63,7 +63,7 @@
     {
       "id": "Number",
       "photoUrl": "String location",
-      "user": "Number",
+      "userId": "Number",
       "photoDescription": "String",
       "categoryId": "Number",
     }
@@ -86,7 +86,7 @@
     {
       "id": "Number",
       "photoUrl": "String location",
-      "user": "Number",
+      "userId": "Number",
       "photoDescription": "String",
       "category": "String",
     }
@@ -110,12 +110,7 @@
     {
       "id": "Number",
       "photoUrl": "String location",
-      "user": "[{
-        "firstName": "String",
-        "lastName": "String",
-        "username": "String",
-        "avatarPic": "String location"
-      }]",
+      "userId": "Number",
       "photoDescription": "String",
       "category": "String",
     }
@@ -138,7 +133,7 @@
     {
       "id": "Number",
       "photoUrl": "String location",
-      "user": "Number",
+      "userId": "Number",
       "photoDescription": "String",
       "category": "String",
     }
