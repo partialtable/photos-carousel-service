@@ -4,13 +4,20 @@
   	{
       "restaurantId": 1,
       "name": "McDonalds",
+      "city": "san jose",
+      "state": "california",
+      "country": "United States",
+      "stars": 4,
+      "cuisine": "American",
       "photos": [
         {
-          "id": 1,
+          "photo_id": 1,
           "description": "A large coke",
           "url": "http:localhost:photos",
           "category": ["all","drinks"],
-          "users": ["Tony Tran", "tonyT", "avatarPic"]
+          "userFullName": "Tony Tran",
+          "username": "tonyT",
+          "userProfileImg": "avatarPic"
         },
         {
           "id": 2,
@@ -66,24 +73,26 @@
     "restaurants": { "type": "array", "items": [{ "type": "object", "properties": {
             "restaurantId": { "type": "integer" },
             "name": { "type": "string" },
+            "city": { "type": "string" },
+            "state": { "type": "string" },
+            "country": { "type": "string" },
+            "stars": { "type": "integer" },
+            "cuisine": { "type": "string" },
             "photos": { "type": "array", "items": [{ "type": "object", "properties": {
-                    "id": { "type": "integer" },
+                    "photo_id": { "type": "integer" },
                     "description": { "type": "string" },
                     "url": { "type": "string" },
-                    "category": { "type": "array",
-                       "items": [{ "type": "string" }, { "type": "string" }]
-                    },
-                    "user": { "type": "array",
-                      "items": [{ "type": "string" }, { "type": "string" }, { "type": "string" }]
+                    "category": { "type": "string" },
+                    "userFullName": { "type": "string" },
+                    "username": { "type": "string" },
+                    "userProfileImg": { "type": "string" }
                    },
-                   "required": [ "name", "username", "avatar"]
-                  },
-                  "required": [ "id", "description", "url", "category" ]
+                  "required": [ "id", "description", "url", "category", "userFullName", "username", "userProfileImg"]
                 }
               ]
             }
           },
-          "required": ["restaurantId", "name", "photos"]
+          "required": ["restaurantId", "name", "city", "state", "country", "stars", "cuisine", "photos"]
         }
       ]
     }
